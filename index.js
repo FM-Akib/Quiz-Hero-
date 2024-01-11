@@ -9,7 +9,7 @@ let startQuiz = document.querySelector("#startQuiz");
 let rulesContainer = document.querySelector("#rulesContainer");
 let alertContainer = document.querySelector("#alertContainer");
 let submitContainer = document.querySelector("#submitContainer");
-let quizContainer = document.querySelector("#quizContainer");
+let quizContainer = document.querySelector("#QuizContainer");
 let answersContainer = document.querySelector("#answersContainer");
 let displayResult = document.querySelector("#displayResult");
 
@@ -54,8 +54,8 @@ const loadQuiz = async () => {
 // Displaying quiz on quiz page
 const displayQuiz = (data) => {
 
-
-  const  quizContainer =document.getElementById('QuizContainer')
+  
+  // const  quizContainer =document.getElementById('QuizContainer')
   if (!data) {
     quizContainer.innerHTML = "";
     return;
@@ -77,12 +77,12 @@ const displayQuiz = (data) => {
     ${displayQuizOptions(quiz.options, i)}
   </div>
 </div>`;
-     quizContainer.appendChild(QuizQuestion);
+ quizContainer.appendChild(QuizQuestion);
   });
 };
 
 // EventListener for quiz submit button
-document.querySelector("#submit").addEventlistener("click", () => {
+document.querySelector("#submit").addEventListener("click", () => {
   if (answers.length < 6) {
     return;
   }
