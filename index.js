@@ -9,7 +9,7 @@ let startQuiz = document.querySelector("#startQuiz");
 let rulesContainer = document.querySelector("#rulesContainer");
 let alertContainer = document.querySelector("#alertContainer");
 let submitContainer = document.querySelector("#submitContainer");
-let quizContainer = document.querySelector("#QuizContainer");
+let quizContainer = document.querySelector("#quizContainer");
 let answersContainer = document.querySelector("#answersContainer");
 let displayResult = document.querySelector("#displayResult");
 
@@ -53,23 +53,20 @@ const loadQuiz = async () => {
 
 // Displaying quiz on quiz page
 const displayQuiz = (data) => {
-
-  
-  // const  quizContainer =document.getElementById('QuizContainer')
   if (!data) {
     quizContainer.innerHTML = "";
     return;
   }
-
-
+   
   data.forEach((quiz, i) => {
-    console.log(quiz)
-    const QuizQuestion = document.createElement('div')
-    QuizQuestion.innerHTML = `
-    <div class="m-3 py-3 px-4 shadow-sm rounded">
-    <div class="flex items-center">
+    // if(quizContainer){
+    // console.log(quiz);
+    // }
+    // else console.log("I LOve you")
+    quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-sm rounded">
+  <div class="flex items-center">
     <div class="h-8 w-8 bg-green-300 rounded-full flex justify-center items-center text-green-800 mr-3">
-      ${i+1}
+      ${i + 1}
     </div>
     <p class="text-gray-800 text-sm">${quiz.question}</p>
   </div>
@@ -77,7 +74,6 @@ const displayQuiz = (data) => {
     ${displayQuizOptions(quiz.options, i)}
   </div>
 </div>`;
- quizContainer.appendChild(QuizQuestion);
   });
 };
 
